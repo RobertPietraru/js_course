@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variabile în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="navigation-buttons">
+        <a href="../001_afisarea/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="#" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Variabile în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Ce sunt Variabilele?</h2>
+        <div class="console-steps">
+            <h3>Conceptul de Variabilă</h3>
+            <p>O variabilă este un container pentru stocarea datelor. Gândește-te la ea ca la o cutie în care poți păstra diferite tipuri de informații.</p>
+            <p>În JavaScript, poți declara variabile folosind:</p>
+            <ul>
+                <li><strong>let</strong> - pentru variabile care pot fi modificate</li>
+                <li><strong>const</strong> - pentru valori constante care nu se modifică</li>
+                <li><strong>var</strong> - varianta mai veche, mai puțin recomandată în codul modern</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Declararea și Inițializarea Variabilelor</h2>
+        <p>Iată cum poți lucra cu variabile în JavaScript:</p>
+
+        <h3>1. Declararea unei Variabile</h3>
+        <p>Exemplu de declarare și atribuire:</p>
+        <div class="code-box">
+            <textarea id="console-code">let nume = "Maria";
+const varsta = 25;
+console.log("Nume:", nume);
+console.log("Vârstă:", varsta);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('console-code').value)">Rulează</button>
+
+        <h3>2. Modificarea Variabilelor</h3>
+        <p>Variabilele let pot fi modificate, const nu:</p>
+        <div class="code-box">
+            <textarea id="alert-code">let scor = 10;
+scor = 20;
+console.log("Scor nou:", scor);
+
+const PI = 3.14159;
+// Următoarea linie ar da eroare:
+// PI = 3.14; // Eroare!</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('alert-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Tipuri de Date în Variabile</h2>
+        <p>JavaScript permite stocarea diferitelor tipuri de date în variabile:</p>
+
+        <h3>String (text)</h3>
+        <div class="code-box">
+            <textarea id="warn-code">let text = "Salut!";
+let altText = 'JavaScript';
+console.log("Text:", text);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('warn-code').value)">Rulează</button>
+
+        <h3>Number (număr)</h3>
+        <div class="code-box">
+            <textarea id="error-code">let numarIntreg = 42;
+let numarZecimal = 3.14;
+console.log("Număr întreg:", numarIntreg);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('error-code').value)">Rulează</button>
+
+        <h3>Boolean</h3>
+        <div class="code-box">
+            <textarea id="table-code">let adevarat = true;
+let fals = false;
+console.log("Valoare booleană:", adevarat);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('table-code').value)">Rulează</button>
+
+    </section>
+
+    <script>
+        // Exemplele vor fi rulate când utilizatorul apasă butoanele
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+</body>
+</html>

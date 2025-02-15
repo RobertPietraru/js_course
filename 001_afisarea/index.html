@@ -1,97 +1,148 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afișarea în JavaScript</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .code-box {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-        .run-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 5px 0;
-        }
-        .run-button:hover {
-            background-color: #45a049;
-        }
-        textarea {
-            width: 100%;
-            min-height: 50px;
-            font-family: monospace;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .console-steps {
-            background-color: #e9f5ff;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        .console-steps img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
+    <div class="navigation-buttons">
+        <a href="../000_mediul_de_lucru/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="/002_variabile/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
     <h1>Metode de Afișare în JavaScript</h1>
 
-    <div class="console-steps">
-        <h2>Cum să deschizi Consola Browserului</h2>
-        <p>Pentru a vedea rezultatele metodei console.log(), trebuie să deschizi consola browserului. Iată cum poți face asta:</p>
-        <ol>
-            <li><strong>Metoda rapidă:</strong> Apasă tasta F12 sau combinația Ctrl+Shift+I (Windows/Linux) sau Cmd+Option+I (Mac)</li>
-            <li><strong>Metoda prin meniu:</strong>
-                <ul>
-                    <li>Click dreapta pe pagină și selectează "Inspectare" sau "Inspect"</li>
-                    <li>În fereastra care se deschide, click pe tab-ul "Console" sau "Consolă"</li>
-                </ul>
+    <section id="sectiunea-1" class="section">
+        <h2>Deschiderea Consolei</h2>
+        <div class="console-steps">
+            <h3>Cum să deschizi Consola Browserului</h3>
+            <p>Pentru a vedea rezultatele metodei console.log(), trebuie să deschizi consola browserului. Iată cum poți
+                face asta:</p>
+            <ol>
+                <li><strong>Metoda rapidă:</strong> Apasă tasta F12 sau combinația Ctrl+Shift+I (Windows/Linux) sau
+                    Cmd+Option+I (Mac)</li>
+                <li><strong>Metoda prin meniu:</strong>
+                    <ul>
+                        <li>Click dreapta pe pagină și selectează "Inspectare" sau "Inspect"</li>
+                        <li>În fereastra care se deschide, click pe tab-ul "Console" sau "Consolă"</li>
+                    </ul>
+                </li>
+            </ol>
+            <p><strong>Notă:</strong> Consola este un instrument esențial pentru dezvoltatori și te va ajuta să depanezi
+                codul JavaScript.</p>
+        </div>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Metode Principale de Afișare</h2>
+        <p>În JavaScript, există două metode principale pentru a afișa informații:</p>
+
+        <h3>1. console.log()</h3>
+        <p>Această metodă afișează mesaje în consola browserului (F12 pentru a o deschide):</p>
+        <div class="code-box">
+            <textarea id="console-code">console.log('Salut din consola!')</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('console-code').value)">Rulează</button>
+
+        <h3>2. alert()</h3>
+        <p>Această metodă afișează o fereastră pop-up cu mesajul dorit:</p>
+        <div class="code-box">
+            <textarea id="alert-code">alert('Salut din pop-up!')</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('alert-code').value)">Rulează</button>
+
+        <p>Poți modifica codul din aceste exemple folosind editorul și apoi să le rulezi pentru a vedea rezultatul!</p>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Funcții Utile ale Consolei</h2>
+        <p>Consola oferă mai multe metode utile pentru debugging și afișare:</p>
+
+        <h3>console.warn()</h3>
+        <p>Afișează un mesaj de avertizare cu pictogramă galbenă:</p>
+        <div class="code-box">
+            <textarea id="warn-code">console.warn('Acesta este un avertisment!')</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('warn-code').value)">Rulează</button>
+
+        <h3>console.error()</h3>
+        <p>Afișează un mesaj de eroare cu pictogramă roșie:</p>
+        <div class="code-box">
+            <textarea id="error-code">console.error('Aceasta este o eroare!')</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('error-code').value)">Rulează</button>
+
+        <h3>console.table()</h3>
+        <p>Afișează date sub formă de tabel:</p>
+        <div class="code-box">
+            <textarea id="table-code">console.table({
+    nume: 'Ion',
+    varsta: 25,
+    oras: 'București'
+})</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('table-code').value)">Rulează</button>
+
+        <h3>console.time() și console.timeEnd()</h3>
+        <p>Măsoară timpul de execuție al codului:</p>
+        <div class="code-box">
+            <textarea id="time-code">console.time('test');
+for(let i = 0; i < 1000000; i++) {
+    // cod de test
+}
+console.timeEnd('test');</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('time-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/jsref/met_win_alert.asp" target="_blank">
+                    Documentație alert() pe W3Schools
+                </a>
             </li>
-        </ol>
-        <p><strong>Notă:</strong> Consola este un instrument esențial pentru dezvoltatori și te va ajuta să depanezi codul JavaScript.</p>
-    </div>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/jsref/obj_console.asp" target="_blank">
+                    Documentație console pe W3Schools
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert" target="_blank">
+                    Documentație alert() pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/console" target="_blank">
+                    Documentație console pe MDN Web Docs
+                </a>
+            </li>
+        </ul>
 
-    <p>În JavaScript, există două metode principale pentru a afișa informații:</p>
-
-    <h2>1. console.log()</h2>
-    <p>Această metodă afișează mesaje în consola browserului (F12 pentru a o deschide):</p>
-    <div class="code-box">
-        <textarea id="console-code">console.log('Salut din consola!')</textarea>
-    </div>
-    <button class="run-button" onclick="eval(document.getElementById('console-code').value)">Rulează</button>
-
-    <h2>2. alert()</h2>
-    <p>Această metodă afișează o fereastră pop-up cu mesajul dorit:</p>
-    <div class="code-box">
-        <textarea id="alert-code">alert('Salut din pop-up!')</textarea>
-    </div>
-    <button class="run-button" onclick="eval(document.getElementById('alert-code').value)">Rulează</button>
-
-    <p>Poți modifica codul din aceste exemple folosind editorul și apoi să le rulezi pentru a vedea rezultatul!</p>
+        <h3>Video Demonstrativ</h3>
+        <p>Pentru o demonstrație vizuală, urmăriți următorul video:</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/OcweWKfyIL0" title="Tutorial Instalare VS Code"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
 
     <script>
         // Exemplele vor fi rulate când utilizatorul apasă butoanele
         console.log('Deschide consola pentru a vedea mesajele! (F12)');
     </script>
 </body>
+
 </html>
