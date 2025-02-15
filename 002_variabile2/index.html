@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipuri de Date Avansate în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="navigation-buttons">
+        <a href="../001_afisarea/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="../003_conditii/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Tipuri de Date Avansate în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Array-uri (Tablouri)</h2>
+        <div class="console-steps">
+            <h3>Ce sunt Array-urile?</h3>
+            <p>Array-urile sunt structuri de date care pot stoca multiple valori într-o singură variabilă. Ele sunt
+                ordonate și pot conține orice tip de date.</p>
+            <p>Exemple de operații cu array-uri:</p>
+            <ul>
+                <li><strong>push()</strong> - adaugă un element la sfârșit</li>
+                <li><strong>pop()</strong> - elimină ultimul element</li>
+                <li><strong>shift()</strong> - elimină primul element</li>
+                <li><strong>unshift()</strong> - adaugă un element la început</li>
+                <li><strong>splice()</strong> - elimină sau înlocuiește elemente de la o poziție specificată</li>
+                <li><strong>slice()</strong> - extrage o porțiune din array</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Lucrul cu Array-uri</h2>
+        <p>Iată câteva exemple de operații cu array-uri:</p>
+
+        <h3>1. Array-uri Unidimensionale</h3>
+        <div class="code-box">
+            <textarea id="console-code">let fructe = ["mere", "pere", "portocale"];
+fructe.push("banane");
+console.log("Array inițial:", fructe);
+console.log("Lungime array:", fructe.length);
+console.log("Primul element:", fructe[0]);
+
+// Eliminarea elementelor
+fructe.pop(); // elimină ultimul element
+console.log("După pop():", fructe);
+fructe.shift(); // elimină primul element
+console.log("După shift():", fructe);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('console-code').value)">Rulează</button>
+
+        <h3>2. Array-uri Multidimensionale</h3>
+        <div class="code-box">
+            <textarea id="array-multi-code">// Crearea unei matrici 3x3
+let matrice = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+console.log("Matrice completă:", matrice);
+console.log("Număr de rânduri:", matrice.length);
+console.log("Număr de coloane:", matrice[0].length);
+console.log("Element din mijloc:", matrice[1][1]);
+
+// Modificarea unui element
+matrice[0][0] = 10;
+console.log("Matrice după modificare:", matrice);
+
+// Array tridimensional
+let cub = [
+    [[1,2], [3,4]],
+    [[5,6], [7,8]]
+];
+console.log("Array 3D:", cub);
+console.log("Element din cub:", cub[1][0][1]); // accesează valoarea 6</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('array-multi-code').value)">Rulează</button>
+
+        <h3>3. Operații Avansate cu Array-uri</h3>
+        <div class="code-box">
+            <textarea id="array-ops-code">// Parcurgerea unei matrici
+let matrice2 = [[1,2,3], [4,5,6]];
+let suma = 0;
+
+for(let i = 0; i < matrice2.length; i++) {
+    for(let j = 0; j < matrice2[i].length; j++) {
+        suma += matrice2[i][j];
+    }
+}
+console.log("Suma elementelor:", suma);
+
+// Aplatizarea unui array multidimensional
+let arrayComplicat = [1, [2, 3], [4, [5, 6]]];
+let arrayPlat = arrayComplicat.flat(2);
+console.log("Array aplatizat:", arrayPlat);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('array-ops-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>null și undefined</h2>
+        <p>JavaScript are două valori speciale pentru reprezentarea absenței unei valori:</p>
+
+        <h3>undefined</h3>
+        <p>undefined apare când:</p>
+        <ul>
+            <li>O variabilă este declarată dar nu i s-a atribuit o valoare</li>
+            <li>Încercăm să accesăm o proprietate care nu există (vom vedea mai târziu)</li>
+            <li>O funcție nu returnează explicit o valoare (vom vedea mai târziu)</li>
+        </ul>
+        <div class="code-box">
+            <textarea id="undefined-code">// Variabilă nedeclarată
+let x;
+console.log("1. Variabilă nedeclarată:", x);
+
+// Proprietate inexistentă
+let obj = {nume: "Ion"};
+console.log("2. Proprietate inexistentă:", obj.varsta);
+
+// Funcție fără return
+function test() {
+    let a = 1 + 1;
+}
+console.log("3. Funcție fără return:", test());
+
+// Array index inexistent
+let arr = [1, 2, 3];
+console.log("4. Element array inexistent:", arr[5]);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('undefined-code').value)">Rulează</button>
+
+        <h3>null</h3>
+        <p>null este folosit pentru a reprezenta absența intenționată a unei valori:</p>
+        <div class="code-box">
+            <textarea id="null-code">// Atribuirea explicită a null
+let user = null;
+console.log("1. Variabilă null:", user);
+
+// Operații cu null
+console.log("null + 1:", null + 1); // null se convertește la 0
+
+// Verificarea pentru null
+let valoare = null;
+console.log("Valoare null:", valoare);
+console.log("Verificare null:", valoare === null);
+</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('null-code').value)">Rulează</button>
+    </section>
+
+    <script>
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                    target="_blank">
+                    Documentație Array pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/array" target="_blank">
+                    Ghid Array-uri pe JavaScript.info
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_arrays.asp" target="_blank">
+                    Tutorial Array-uri pe W3Schools
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null"
+                    target="_blank">
+                    Documentație null pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined"
+                    target="_blank">
+                    Documentație undefined pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/types#the-null-value" target="_blank">
+                    Ghid null și undefined pe JavaScript.info
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <p>Pentru o demonstrație vizuală, urmăriți următorul video:</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/7W4pQQ20nJg" title="Tutorial Array-uri JavaScript"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/7bpQUVK9Gn4" title="Tutorial null și undefined JavaScript"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+</body>
+
+</html>

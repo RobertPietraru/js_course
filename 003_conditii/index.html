@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instrucțiuni Condiționale în JavaScript</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="navigation-buttons">
-        <a href="../002_variabile/index.html" class="nav-button">
+        <a href="../002_variabile2/index.html" class="nav-button">
             ← Lecția Anterioară
         </a>
         <a href="../index.html" class="nav-button">
@@ -69,55 +71,87 @@ console.log("Preț final:", pretFinal);</textarea>
     </section>
 
     <section id="sectiunea-3" class="section">
-        <h2>Operatori de Comparare</h2>
-        <p>În condițiile if putem folosi diferiți operatori de comparare:</p>
-        <table >
-            <tr >
-                <th >Operator</th>
-                <th >Descriere</th>
-            </tr>
-            <tr>
-                <td ><code>==</code></td>
-                <td >Egal (verifică doar valoarea)</td>
-            </tr>
-            <tr>
-                <td ><code>===</code></td>
-                <td >Strict egal (verifică valoarea și tipul)</td>
-            </tr>
-            <tr>
-                <td ><code>!=</code></td>
-                <td >Diferit</td>
-            </tr>
-            <tr>
-                <td ><code>!=</code></td>
-                <td >Strict diferit</td>
-            </tr>
-            <tr>
-                <td ><code>></code></td>
-                <td >Mai mare</td>
-            </tr>
-            <tr>
-                <td ><code><</code></td>
-                <td >Mai mic</td>
-            </tr>
-            <tr>
-                <td ><code>>=</code></td>
-                <td >Mai mare sau egal</td>
-            </tr>
-            <tr>
-                <td ><code><=</code></td>
-                <td >Mai mic sau egal</td>
-            </tr>
-        </table>
+        <h2>Operatori Logici în Condiții</h2>
+        <p>În JavaScript, operatorii && (AND) și || (OR) au un comportament special în condiții:</p>
+
+        <h3>Operatorul && (AND)</h3>
+        <p>Cu &&, dacă prima condiție este falsă, a doua nu mai este evaluată:</p>
+        <div class="code-box">
+            <textarea id="and-code">let x = 5;
+let y = 10;
+
+// A doua funcție nu va fi executată pentru că prima condiție este falsă
+if (x > 10 && console.log("Acest mesaj nu va fi afișat")) {
+    console.log("Codul din if nu se execută");
+}
+
+// Ambele condiții sunt evaluate pentru că prima este adevărată
+if (x < 10 && console.log("Acest mesaj va fi afișat")) {
+    console.log("Codul din if se execută");
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('and-code').value)">Rulează</button>
+
+        <h3>Operatorul || (OR)</h3>
+        <p>Cu ||, dacă prima condiție este adevărată, a doua nu mai este evaluată:</p>
+        <div class="code-box">
+            <textarea id="or-code">let a = 5;
+let b = 10;
+
+// A doua funcție nu va fi executată pentru că prima condiție este adevărată
+if (a < 10 || console.log("Acest mesaj nu va fi afișat")) {
+    console.log("Codul din if se execută");
+}
+
+// Ambele condiții sunt evaluate pentru că prima este falsă
+if (a > 10 || console.log("Acest mesaj va fi afișat")) {
+    console.log("Codul din if se execută oricum");
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('or-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-truthy" class="section">
+        <h2>Valori Truthy și Falsy</h2>
+        <p>În JavaScript, orice valoare poate fi convertită la boolean. Valorile care se convertesc la true se numesc
+            "truthy", iar cele care se convertesc la false se numesc "falsy".</p>
+
+        <h3>Valori Falsy</h3>
+        <p>Următoarele valori sunt întotdeauna falsy:</p>
+        <ul>
+            <li><code>false</code></li>
+            <li><code>0</code></li>
+            <li><code>""</code> (string gol)</li>
+            <li><code>null</code></li>
+            <li><code>undefined</code></li>
+            <li><code>NaN</code></li>
+        </ul>
 
         <div class="code-box">
-            <textarea id="operators-code">let x = 5;
-let y = "5";
-
-console.log(x == y);  // true (comparare doar valoare)
-console.log(x === y); // false (comparare valoare și tip)</textarea>
+            <textarea id="falsy-code">console.log(Boolean(0));         // false
+console.log(Boolean(""));       // false
+console.log(Boolean(null));     // false
+console.log(Boolean(undefined)); // false</textarea>
         </div>
-        <button class="run-button" onclick="eval(document.getElementById('operators-code').value)">Rulează</button>
+        <button class="run-button" onclick="eval(document.getElementById('falsy-code').value)">Rulează</button>
+
+        <h3>Valori Truthy</h3>
+        <p>Toate celelalte valori sunt truthy, inclusiv:</p>
+        <ul>
+            <li>Orice număr diferit de 0 (inclusiv negative)</li>
+            <li>Orice string nevid</li>
+            <li>Obiectul <code>{}</code></li>
+            <li>Array-ul <code>[]</code></li>
+        </ul>
+
+        <div class="code-box">
+            <textarea id="truthy-code">console.log(Boolean(1));        // true
+console.log(Boolean("text"));   // true
+console.log(Boolean([]));       // true
+console.log(Boolean({}));       // true
+console.log(Boolean(-42));      // true</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('truthy-code').value)">Rulează</button>
     </section>
 
     <script>
@@ -128,7 +162,8 @@ console.log(x === y); // false (comparare valoare și tip)</textarea>
         <h2>Resurse Suplimentare</h2>
         <ul class="resource-links">
             <li class="resource-link">
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else" target="_blank">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
+                    target="_blank">
                     Documentație if...else pe MDN Web Docs
                 </a>
             </li>
@@ -150,7 +185,14 @@ console.log(x === y); // false (comparare valoare și tip)</textarea>
             <iframe src="https://www.youtube.com/embed/IsG4Xd6LlsM" title="Tutorial Condiții JavaScript"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/r7v6EIiHfVA"
+                    title="Tutorial Valori Truthy și Falsy în JavaScript"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 </body>
+
 </html>
