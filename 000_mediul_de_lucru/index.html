@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurarea VS Code cu Live Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .resource {
+            background-color: #e9f5ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .video-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .video-link:hover {
+            color: #0066cc;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Raport de aspect 16:9 */
+            margin: 10px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configurarea Visual Studio Code cu Live Server</h1>
+
+    <div class="step">
+        <h2>Pasul 1: Instalarea Visual Studio Code</h2>
+        <p>Mai întâi, descărcați și instalați VS Code de pe site-ul oficial. Daca sunteti la scoala, cel mai probabil deja a fost instalat de cineva. Verificati cautand pe desktop triunghiul albastru</p>
+        <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a>
+        
+        <div class="resource">
+            <h3>Resurse Utile pentru Instalare:</h3>
+            <p>Documentație Oficială:</p>
+            <a href="https://code.visualstudio.com/docs/setup/setup-overview" target="_blank">Prezentare Generală a Configurării VS Code</a>
+            
+            <p>Tutorial Video:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/DKxS3IkduWQ" title="Tutorial Instalare VS Code" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="step">
+        <h2>Pasul 2: Instalarea Extensiei Live Server</h2>
+        <div class="resource">
+            <p>Tutorial Video pentru Live Server:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/1XwAPLe3kwg" title="Ghid de Instalare și Utilizare Live Server" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <ol>
+            <li>Deschideți VS Code</li>
+            <li>Faceți clic pe iconița Extensions din bara laterală stângă (sau apăsați Ctrl+Shift+X)
+                <img src="images/extensions-icon.png" alt="Iconița Extensions în VS Code">
+            </li>
+            <li>Căutați "Live Server" în bara de căutare a extensiilor
+                <img src="images/live-server-search.png" alt="Căutarea Live Server">
+            </li>
+            <li>Căutați extensia creată de Ritwick Dey
+                <img src="images/live-server-extension.png" alt="Extensia Live Server">
+            </li>
+            <li>Faceți clic pe "Install" și așteptați finalizarea instalării</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Pasul 3: Utilizarea Live Server</h2>
+        <ol>
+            <li>Deschideți folderul proiectului în VS Code</li>
+            <li>Creați sau deschideți un fișier HTML</li>
+            <li>Faceți clic dreapta în editor
+                <img src="images/right-click-menu.png" alt="Meniu clic dreapta în VS Code">
+            </li>
+            <li>Selectați "Open with Live Server" din meniul contextual
+                <img src="images/open-with-live-server.png" alt="Opțiunea Open with Live Server">
+            </li>
+            <li>Browserul dvs. implicit se va deschide automat cu pagina dvs.
+                <img src="images/live-server-browser.png" alt="Pagina deschisă în browser">
+            </li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h2>Caracteristici Principale ale Live Server</h2>
+        <ul>
+            <li>Reîncărcare automată a browserului la modificarea fișierelor</li>
+            <li>Suport pentru majoritatea browserelor</li>
+            <li>Configurare personalizată a portului</li>
+            <li>Suport HTTPS</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h2>Depanarea Live Server</h2>
+        <p>Dacă Live Server nu funcționează:</p>
+        <ul>
+            <li>Asigurați-vă că ați salvat fișierul HTML</li>
+            <li>Verificați dacă portul 5500 nu este utilizat de o altă aplicație</li>
+            <li>Încercați să reporniți VS Code</li>
+            <li>Verificați dacă antivirusul nu blochează conexiunea</li>
+        </ul>
+        <p>Notă: Veți vedea un buton "Go Live" în colțul din dreapta jos al VS Code când Live Server este instalat corect
+            <img src="images/go-live-button.png" alt="Butonul Go Live">
+        </p>
+    </div>
+</body>
+</html>
