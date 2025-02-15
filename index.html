@@ -15,41 +15,112 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Curs JavaScript</h1>
-    
-    <div class="nav-container">
-        <a href="000_mediul_de_lucru/index.html">
-            <div class="nav-card">
-                <h2>0. Mediul de Lucru</h2>
-                <p>Configurarea VS Code și Live Server pentru dezvoltare JavaScript</p>
-            </div>
-        </a>
-        
-        <a href="001_afisarea/index.html">
-            <div class="nav-card">
-                <h2>1. Afișarea</h2>
-                <p>Metode de afișare a datelor în JavaScript</p>
-            </div>
-        </a>
-        <a href="002_variabile/index.html">
-            <div class="nav-card">  
-                <h2>2. Variabile</h2>
-                <p>Declararea și utilizarea variabilelor în JavaScript</p>
-            </div>
-        </a>
-        <a href="002_variabile2/index.html">
-            <div class="nav-card">
-                <h2>2.1 Variabile Avansate</h2>
-                <p>Array-uri, null și undefined în JavaScript</p>
-            </div>
-        </a>
+    <header>
+        <h1>Curs JavaScript</h1>
+        <p class="subtitle">Învață JavaScript într-un mod interactiv și practic</p>
+    </header>
 
-        <a href="003_conditii/index.html">
-            <div class="nav-card">
-                <h2>3. Condiții</h2>
-                <p>Instrucțiuni if/else și operatori logici în JavaScript</p>
-            </div>
-        </a>
-    </div>
+    <main>
+        <div class="welcome-section">
+            <p>Bine ai venit la cursul nostru de JavaScript! Aici vei învăța pas cu pas conceptele fundamentale ale programării în JavaScript, de la noțiuni de bază până la concepte avansate.</p>
+        </div>
+        
+        <div class="nav-container">
+            <a href="000_mediul_de_lucru/index.html">
+                <div class="nav-card">
+                    <div class="card-icon">🛠️</div>
+                    <h2>0. Mediul de Lucru</h2>
+                    <p>Configurarea VS Code și Live Server pentru dezvoltare JavaScript</p>
+                </div>
+            </a>
+            
+            <a href="001_afisarea/index.html">
+                <div class="nav-card">
+                    <div class="card-icon">📝</div>
+                    <h2>1. Afișarea</h2>
+                    <p>Metode de afișare a datelor în JavaScript</p>
+                </div>
+            </a>
+
+            <a href="002_variabile/index.html">
+                <div class="nav-card">
+                    <div class="card-icon">📦</div>
+                    <h2>2. Variabile</h2>
+                    <p>Declararea și utilizarea variabilelor în JavaScript</p>
+                </div>
+            </a>
+
+            <a href="002_variabile2/index.html">
+                <div class="nav-card">
+                    <div class="card-icon">🔄</div>
+                    <h2>2.1 Variabile Avansate</h2>
+                    <p>Array-uri, null și undefined în JavaScript</p>
+                </div>
+            </a>
+
+            <a href="003_conditii/index.html">
+                <div class="nav-card">
+                    <div class="card-icon">🔍</div>
+                    <h2>3. Condiții</h2>
+                    <p>Instrucțiuni if/else și operatori logici în JavaScript</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Dezvoltat in 2025 de Colegiul "A. T. Laurian" Botoșani</p>
+    </footer>
+
+    <style>
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .welcome-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .card-icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-card {
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
 </body>
 </html>
