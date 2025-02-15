@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucțiuni Condiționale în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="navigation-buttons">
+        <a href="../002_variabile/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="#" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Instrucțiuni Condiționale în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Instrucțiunea if</h2>
+        <p>Instrucțiunea if permite executarea codului în funcție de o condiție:</p>
+        <div class="code-box">
+            <textarea id="if-code">let varsta = 18;
+if (varsta >= 18) {
+    console.log("Ești major!");
+} else {
+    console.log("Ești minor!");
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('if-code').value)">Rulează</button>
+
+        <h3>if...else if...else</h3>
+        <p>Pentru multiple condiții, putem folosi else if:</p>
+        <div class="code-box">
+            <textarea id="else-if-code">let nota = 8;
+if (nota >= 9) {
+    console.log("Foarte bine!");
+} else if (nota >= 7) {
+    console.log("Bine!");
+} else {
+    console.log("Trebuie să mai înveți!");
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('else-if-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Operatorul Ternar</h2>
+        <p>Operatorul ternar este o formă prescurtată pentru if...else:</p>
+        <div class="code-box">
+            <textarea id="ternary-code">let varsta = 20;
+let mesaj = varsta >= 18 ? "Major" : "Minor";
+console.log(mesaj);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('ternary-code').value)">Rulează</button>
+
+        <h3>Exemple Practice</h3>
+        <div class="code-box">
+            <textarea id="practical-code">let pret = 100;
+let membru = true;
+let pretFinal = membru ? pret * 0.9 : pret; // 10% reducere pentru membri
+console.log("Preț final:", pretFinal);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('practical-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Operatori de Comparare</h2>
+        <p>În condițiile if putem folosi diferiți operatori de comparare:</p>
+        <table >
+            <tr >
+                <th >Operator</th>
+                <th >Descriere</th>
+            </tr>
+            <tr>
+                <td ><code>==</code></td>
+                <td >Egal (verifică doar valoarea)</td>
+            </tr>
+            <tr>
+                <td ><code>===</code></td>
+                <td >Strict egal (verifică valoarea și tipul)</td>
+            </tr>
+            <tr>
+                <td ><code>!=</code></td>
+                <td >Diferit</td>
+            </tr>
+            <tr>
+                <td ><code>!=</code></td>
+                <td >Strict diferit</td>
+            </tr>
+            <tr>
+                <td ><code>></code></td>
+                <td >Mai mare</td>
+            </tr>
+            <tr>
+                <td ><code><</code></td>
+                <td >Mai mic</td>
+            </tr>
+            <tr>
+                <td ><code>>=</code></td>
+                <td >Mai mare sau egal</td>
+            </tr>
+            <tr>
+                <td ><code><=</code></td>
+                <td >Mai mic sau egal</td>
+            </tr>
+        </table>
+
+        <div class="code-box">
+            <textarea id="operators-code">let x = 5;
+let y = "5";
+
+console.log(x == y);  // true (comparare doar valoare)
+console.log(x === y); // false (comparare valoare și tip)</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('operators-code').value)">Rulează</button>
+    </section>
+
+    <script>
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else" target="_blank">
+                    Documentație if...else pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/ifelse" target="_blank">
+                    Ghid Condiții pe JavaScript.info
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_if_else.asp" target="_blank">
+                    Tutorial if/else pe W3Schools
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <p>Pentru o demonstrație vizuală, urmăriți următorul video:</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/IsG4Xd6LlsM" title="Tutorial Condiții JavaScript"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+</body>
+</html>

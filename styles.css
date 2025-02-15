@@ -50,6 +50,16 @@ a {
     margin: 10px 0;
 }
 
+.code-box textarea {
+    width: 100%;
+    min-height: 140px;
+    font-family: monospace;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    
+}
 .run-button {
     background-color: #4CAF50;
     color: white;
@@ -64,14 +74,6 @@ a {
     background-color: #45a049;
 }
 
-textarea {
-    width: 100%;
-    min-height: 50px;
-    font-family: monospace;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
 
 /* Console */
 .console-steps {
@@ -218,3 +220,16 @@ img {
     border: none;
     border-radius: 4px;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
