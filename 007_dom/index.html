@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .bounce-text {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .bounce-text:hover {
+            transform: scale(1.2);
+        }
+        .pet {
+            font-size: 3em;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+        .pet:hover {
+            transform: scale(1.1);
+        }
+        .food {
+            font-size: 1.5em;
+            position: fixed;
+            transition: all 0.5s;
+            z-index: 1000;
+        }
+        .flower {
+            font-size: 1.5em;
+            position: fixed;
+            transition: all 0.5s;
+            z-index: 1000;
+        }
+        .code-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            font-family: monospace;
+            padding: 10px;
+        }
+        .run-button {
+            background: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        .run-button:hover {
+            background: #45a049;
+        }
+        .tab-container {
+            margin-bottom: 20px;
+        }
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .tab-button {
+            padding: 8px 16px;
+            border: none;
+            background: #ddd;
+            cursor: pointer;
+        }
+        .tab-button.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation-buttons">
+        <a href="../005_functii/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="../008_/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>DOM (Document Object Model) în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>DOM-ul: Structura unui Arbore Genealogic</h2>
+        <p>Imaginați-vă că pagina web este ca un arbore genealogic, unde:</p>
+        <ul>
+            <li>Documentul HTML este strămoșul tuturor elementelor</li>
+            <li>Fiecare element poate avea elemente "copil"</li>
+            <li>Elementele de același nivel sunt "frați"</li>
+            <li>Putem naviga în sus spre "părinți" sau în jos spre "copii"</li>
+        </ul>
+
+        <h3>Exemplu Interactiv: Text Care Face Bum! 💥</h3>
+        <div class="code-box">
+            <div class="tab-container" id="bounce-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button" onclick="switchTab('bounce', 'html')">HTML</button>
+                    <button class="tab-button" onclick="switchTab('bounce', 'css')">CSS</button>
+                    <button class="tab-button active" onclick="switchTab('bounce', 'js')">JavaScript</button>
+                </div>
+                <div class="tab-content" id="bounce-html">
+                    <textarea readonly>
+<div id="text-explode">
+    <span class="bounce-text">A</span>
+    <span class="bounce-text">p</span>
+    <span class="bounce-text">a</span>
+    <span class="bounce-text">s</span>
+    <span class="bounce-text">ă</span>
+    <span class="bounce-text">&nbsp;</span>
+    <span class="bounce-text">l</span>
+    <span class="bounce-text">i</span>
+    <span class="bounce-text">t</span>
+    <span class="bounce-text">e</span>
+    <span class="bounce-text">r</span>
+    <span class="bounce-text">e</span>
+    <span class="bounce-text">l</span>
+    <span class="bounce-text">e</span>
+    <span class="bounce-text">!</span>
+</div></textarea>
+                </div>
+                <div class="tab-content" id="bounce-css">
+                    <textarea readonly>
+.bounce-text {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.bounce-text:hover {
+    transform: scale(1.2);
+}</textarea>
+                </div>
+                <div class="tab-content active" id="bounce-js">
+                    <textarea id="bounce-code">
+// Text Explode Animation
+document.querySelectorAll('.bounce-text').forEach(letter => {
+    letter.addEventListener('click', function() {
+        this.style.transform = 'scale(2) rotate(360deg)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        }, 500);
+    });
+});</textarea>
+                </div>
+            </div>
+            <button class="run-button" onclick="eval(document.getElementById('bounce-code').value)">Rulează</button>
+        </div>
+        <div id="text-explode" style="margin: 20px; text-align: center;">
+            <span class="bounce-text">A</span>
+            <span class="bounce-text">p</span>
+            <span class="bounce-text">a</span>
+            <span class="bounce-text">s</span>
+            <span class="bounce-text">ă</span>
+            <span class="bounce-text">&nbsp;</span>
+            <span class="bounce-text">l</span>
+            <span class="bounce-text">i</span>
+            <span class="bounce-text">t</span>
+            <span class="bounce-text">e</span>
+            <span class="bounce-text">r</span>
+            <span class="bounce-text">e</span>
+            <span class="bounce-text">l</span>
+            <span class="bounce-text">e</span>
+            <span class="bounce-text">!</span>
+        </div>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Manipularea Elementelor în DOM</h2>
+        <p>Avem mai multe modalități de a interacționa cu elementele:</p>
+        
+        <h3>Exemplu Interactiv: Cutii Colorate 🎨</h3>
+        <div class="code-box">
+            <div class="tab-container" id="color-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button" onclick="switchTab('color', 'html')">HTML</button>
+                    <button class="tab-button" onclick="switchTab('color', 'css')">CSS</button>
+                    <button class="tab-button active" onclick="switchTab('color', 'js')">JavaScript</button>
+                </div>
+                <div class="tab-content" id="color-html">
+                    <textarea readonly>
+<div id="color-boxes" style="text-align: center;"></div></textarea>
+                </div>
+                <div class="tab-content" id="color-css">
+                    <textarea readonly>
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s;
+}</textarea>
+                </div>
+                <div class="tab-content active" id="color-js">
+                    <textarea id="color-boxes-code">
+// Color Boxes
+const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeead'];
+const colorBox = document.getElementById('color-boxes');
+colors.forEach(color => {
+    const box = document.createElement('div');
+    box.className = 'color-box';
+    box.style.backgroundColor = color;
+    box.addEventListener('click', function() {
+        this.style.transform = 'rotate(360deg)';
+        setTimeout(() => this.style.transform = 'rotate(0deg)', 500);
+    });
+    colorBox.appendChild(box);
+});</textarea>
+                </div>
+            </div>
+            <button class="run-button" onclick="eval(document.getElementById('color-boxes-code').value)">Rulează</button>
+        </div>
+        <div id="color-boxes" style="text-align: center;"></div>
+        
+        <h3>Exemplu Interactiv: Hrănește Animalul de Companie 🐱</h3>
+        <div class="code-box">
+            <div class="tab-container" id="pet-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button" onclick="switchTab('pet', 'html')">HTML</button>
+                    <button class="tab-button" onclick="switchTab('pet', 'css')">CSS</button>
+                    <button class="tab-button active" onclick="switchTab('pet', 'js')">JavaScript</button>
+                </div>
+                <div class="tab-content" id="pet-html">
+                    <textarea readonly>
+<div id="pet-container" style="height: 200px; position: relative; text-align: center; margin-top: 20px;">
+    <div class="pet" id="pet">🐱</div>
+</div></textarea>
+                </div>
+                <div class="tab-content" id="pet-css">
+                    <textarea readonly>
+.pet {
+    font-size: 3em;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+}
+.pet:hover {
+    transform: scale(1.1);
+}
+.food {
+    font-size: 1.5em;
+    position: absolute;
+    transition: all 0.5s;
+}</textarea>
+                </div>
+                <div class="tab-content active" id="pet-js">
+                    <textarea id="pet-code">
+// Pet Feeding Game
+const pet = document.getElementById('pet');
+const foods = ['🍖', '🍗', '🍕', '🍔', '🌭'];
+let foodCount = 0;
+
+pet.addEventListener('click', function() {
+    const food = document.createElement('div');
+    food.className = 'food';
+    food.textContent = foods[Math.floor(Math.random() * foods.length)];
+    food.style.left = (Math.random() * 80 + 10) + '%';
+    food.style.top = '0';
+    document.getElementById('pet-container').appendChild(food);
+
+    food.animate([
+        { top: '0' },
+        { top: '150px' }
+    ], {
+        duration: 1000,
+        easing: 'ease-in'
+    });
+
+    setTimeout(() => {
+        food.remove();
+        foodCount++;
+        if (foodCount % 3 === 0) {
+            pet.textContent = ['🐱', '😺', '😸', '😹'][Math.floor(Math.random() * 4)];
+        }
+    }, 1000);
+});</textarea>
+                </div>
+            </div>
+            <button class="run-button" onclick="eval(document.getElementById('pet-code').value)">Rulează</button>
+        </div>
+        <div id="pet-container" style="height: 200px; position: relative; text-align: center; margin-top: 20px;">
+            <div class="pet" id="pet">🐱</div>
+        </div>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Evenimente în DOM</h2>
+        <p>Elementele pot răspunde la diverse interacțiuni:</p>
+        
+        <h3>Exemplu Interactiv: Creează-ți Propria Grădină 🌸</h3>
+        <div class="code-box">
+            <div class="tab-container" id="garden-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button" onclick="switchTab('garden', 'html')">HTML</button>
+                    <button class="tab-button" onclick="switchTab('garden', 'css')">CSS</button>
+                    <button class="tab-button active" onclick="switchTab('garden', 'js')">JavaScript</button>
+                </div>
+                <div class="tab-content" id="garden-html">
+                    <textarea readonly>
+<div id="garden" style="min-height: 200px; background-color: #e8f5e9; padding: 20px; text-align: center;">
+    <p>Click oriunde pentru a planta o floare!</p>
+</div></textarea>
+                </div>
+                <div class="tab-content" id="garden-css">
+                    <textarea readonly>
+#garden {
+    min-height: 200px;
+    background-color: #e8f5e9;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}</textarea>
+                </div>
+                <div class="tab-content active" id="garden-js">
+                    <textarea id="garden-code">
+// Garden Creator
+const garden = document.getElementById('garden');
+const flowers = ['🌸', '🌹', '🌺', '🌻', '🌼', '🌷'];
+
+garden.addEventListener('click', function(e) {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+    const startX = Math.random() * window.innerWidth;
+    flower.style.left = startX + 'px';
+    flower.style.top = '0';
+    document.body.appendChild(flower);
+
+    flower.animate([
+        { top: '0', left: startX + 'px' },
+        { top: (e.clientY - 15) + 'px', left: (e.clientX - 15) + 'px' }
+    ], {
+        duration: 1000,
+        easing: 'ease-in'
+    });
+
+    setTimeout(() => {
+        flower.remove();
+    }, 1000);
+});</textarea>
+                </div>
+            </div>
+            <button class="run-button" onclick="eval(document.getElementById('garden-code').value)">Rulează</button>
+        </div>
+        <div id="garden" style="min-height: 200px; background-color: #e8f5e9; padding: 20px; text-align: center;">
+            <p>Click oriunde pentru a planta o floare!</p>
+        </div>
+    </section>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Sfaturi Practice pentru Manipularea DOM</h2>
+        <ul>
+            <li>Folosiți <code>querySelector()</code> pentru căutări precise în arbore</li>
+            <li>Utilizați <code>classList</code> pentru manipularea eficientă a claselor</li>
+            <li>Preferați delegarea evenimentelor pentru structuri dinamice</li>
+            <li>Folosiți <code>createDocumentFragment()</code> pentru modificări multiple</li>
+            <li>Minimizați manipulările directe ale DOM-ului pentru performanță mai bună</li>
+        </ul>
+    </section>
+
+    <section id="sectiunea-5" class="section">
+        <h2>Resurse pentru Aprofundare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">
+                    MDN Web Docs - Ghidul Complet DOM
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/dom-nodes" target="_blank">
+                    JavaScript.info - Noduri și Relații DOM
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank">
+                    W3Schools - Bazele DOM
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/0ik6X4DJKCc" 
+                    title="Tutorial DOM JavaScript"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script>
+        function switchTab(example, tab) {
+            // Hide all tabs for this example
+            document.querySelectorAll(`#${example}-tabs .tab-content`).forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll(`#${example}-tabs .tab-button`).forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${example}-${tab}`).classList.add('active');
+            document.querySelector(`#${example}-tabs .tab-button[onclick="switchTab('${example}', '${tab}')"]`).classList.add('active');
+        }
+
+        // Initial execution of all examples
+        eval(document.getElementById('bounce-code').value);
+        eval(document.getElementById('color-boxes-code').value);
+        eval(document.getElementById('pet-code').value);
+        eval(document.getElementById('garden-code').value);
+    </script>
+</body>
+
+</html>

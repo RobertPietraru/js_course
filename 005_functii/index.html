@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcții în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="navigation-buttons">
+        <a href="../004_bucle/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="../006_obiecte/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Funcții în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Declararea Funcțiilor</h2>
+        <p>Funcțiile sunt blocuri de cod reutilizabile care pot fi apelate oricând:</p>
+        <div class="code-box">
+            <textarea id="function-code">// Funcție simplă
+function salut(nume) {
+    console.log("Salut, " + nume + "!");
+}
+salut("Maria");
+
+// Funcție cu return
+function aduna(a, b) {
+    return a + b;
+}
+console.log("Suma este: " + aduna(5, 3));</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('function-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Funcții Anonime</h2>
+        <p>Funcțiile anonime nu au nume și pot fi atribuite unei variabile:</p>
+        <div class="code-box">
+            <textarea id="anonymous-code">// Funcție anonimă atribuită unei variabile
+const inmulteste = function(x, y) {
+    return x * y;
+};
+console.log("Produsul este: " + inmulteste(4, 6));
+
+// Funcție anonimă ca argument
+setTimeout(function() {
+    console.log("Acest mesaj apare după 2 secunde");
+}, 2000);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('anonymous-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Funcții Săgeată (Arrow Functions)</h2>
+        <p>O sintaxă modernă și concisă pentru funcții:</p>
+        <div class="code-box">
+            <textarea id="arrow-code">// Arrow function simplu
+const patrat = x => x * x;
+console.log("Pătratul lui 5 este: " + patrat(5));
+
+// Arrow function cu mai mulți parametri
+const calculeazaMedia = (a, b, c) => (a + b + c) / 3;
+console.log("Media este: " + calculeazaMedia(10, 20, 30));</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('arrow-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Parametri și Return</h2>
+        <p>Funcțiile pot primi parametri și returna valori:</p>
+        <div class="code-box">
+            <textarea id="params-code">// Funcție cu parametri impliciți
+function salutare(nume = "Vizitator") {
+    return "Bună ziua, " + nume;
+}
+console.log(salutare());
+console.log(salutare("Ana"));
+
+// Funcție cu mai multe returnuri
+function verificaVarsta(varsta) {
+    if (varsta < 18) return "Minor";
+    if (varsta < 65) return "Adult";
+    return "Senior";
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('params-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-5" class="section">
+        <h2>Closure și Scope</h2>
+        <p>Funcțiile pot accesa variabile din scopul exterior:</p>
+        <div class="code-box">
+            <textarea id="closure-code">// Exemplu de closure
+function createCounter() {
+    let count = 0;
+    return function() {
+        return ++count;
+    }
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('closure-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-6" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank">
+                    Documentație Funcții pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/function-basics" target="_blank">
+                    Ghid Funcții pe JavaScript.info
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_functions.asp" target="_blank">
+                    Tutorial Funcții pe W3Schools
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/xUI5Tsl2JpY" 
+                    title="Tutorial Funcții JavaScript"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script>
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+</body>
+
+</html>

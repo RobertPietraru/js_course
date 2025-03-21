@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obiecte în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="navigation-buttons">
+        <a href="../005_functii/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="../007_dom/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Obiecte în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Ce sunt Obiectele?</h2>
+        <p>Obiectele sunt colecții de date care conțin proprietăți și valori:</p>
+        <div class="code-box">
+            <textarea id="object-code">// Obiect literal simplu
+const persoana = {
+    nume: "Maria",
+    varsta: 25,
+    oras: "București",
+    hobby: ["citit", "călătorii"],
+    arePermisConducere: true
+};
+
+console.log(persoana.nume); // afișează "Maria"
+console.log(persoana.hobby[0]); // afișează "citit"</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('object-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Lucrul cu Obiecte</h2>
+        <p>Putem adăuga, modifica și șterge proprietăți din obiecte:</p>
+        <div class="code-box">
+            <textarea id="modify-code">const masina = {
+    marca: "Dacia",
+    model: "Logan",
+    culoare: "albastru"
+};
+
+// Modificare proprietăți
+masina.culoare = "roșu";
+
+// Adăugare proprietăți noi
+masina.anFabricatie = 2020;
+
+// Ștergere proprietăți
+delete masina.culoare;
+
+console.log(masina);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('modify-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Obiecte care conțin alte obiecte (nested objects)</h2>
+        <p>Obiectele pot conține alte obiecte:</p>
+        <div class="code-box">
+            <textarea id="nested-code">const magazin = {
+    nume: "Magazinul Meu",
+    adresa: {
+        strada: "Strada Principală",
+        numar: 10,
+        oras: "București"
+    },
+    produse: {
+        fructe: ["mere", "pere", "banane"],
+        legume: ["morcovi", "cartofi"]
+    }
+};
+
+console.log(magazin.adresa.oras);
+console.log(magazin.produse.fructe[0]);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('nested-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-4" class="section">
+        <h2>Metode în Obiecte</h2>
+        <p>Obiectele pot conține și funcții (metode):</p>
+        <div class="code-box">
+            <textarea id="methods-code">const calculator = {
+    numar1: 10,
+    numar2: 5,
+    aduna: function() {
+        return this.numar1 + this.numar2;
+    },
+    scade: function() {
+        return this.numar1 - this.numar2;
+    }
+};
+
+console.log(calculator.aduna());  // 15
+console.log(calculator.scade());  // 5</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('methods-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-5" class="section">
+        <h2>Utilizări Practice</h2>
+        <p>Obiectele sunt folosite pentru a organiza date conexe:</p>
+        <div class="code-box">
+            <textarea id="practical-code">// Configurări aplicație
+const configurariApp = {
+    tema: "închis",
+    notificari: true,
+    limba: "română",
+    setari: {
+        sunet: true,
+        volum: 75,
+        autoplay: false
+    }
+};
+
+// Profil utilizator
+const utilizator = {
+    nume: "Ion Popescu",
+    email: "ion@exemplu.com",
+    preferinte: {
+        newsletter: true,
+        temaInterfata: "luminos"
+    }
+};
+
+console.log(configurariApp.setari.volum);
+console.log(utilizator.preferinte.temaInterfata);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('practical-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-6" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" target="_blank">
+                    Documentație Obiecte pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/object" target="_blank">
+                    Ghid Obiecte pe JavaScript.info
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_objects.asp" target="_blank">
+                    Tutorial Obiecte pe W3Schools
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/xUI5Tsl2JpY" 
+                    title="Tutorial Obiecte JavaScript"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script>
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+</body>
+
+</html>

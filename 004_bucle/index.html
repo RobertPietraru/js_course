@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle în JavaScript</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="navigation-buttons">
+        <a href="../003_conditii/index.html" class="nav-button">
+            ← Lecția Anterioară
+        </a>
+        <a href="../index.html" class="nav-button">
+            Înapoi la Pagina Principală
+        </a>
+        <a href="../005_functii/index.html" class="nav-button">
+            Lecția Următoare →
+        </a>
+    </div>
+    <h1>Bucle în JavaScript</h1>
+
+    <section id="sectiunea-1" class="section">
+        <h2>Bucla for</h2>
+        <p>Bucla for este folosită când știm de câte ori vrem să repetăm o acțiune:</p>
+        <div class="code-box">
+            <textarea id="for-code">// Numără de la 1 la 5
+for (let i = 1; i <= 5; i++) {
+    console.log("Numărul: " + i);
+}
+
+// Iterare prin array
+let fructe = ["măr", "banană", "portocală"];
+for (let i = 0; i < fructe.length; i++) {
+    console.log(fructe[i]);
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('for-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-2" class="section">
+        <h2>Bucla while</h2>
+        <p>Bucla while se execută cât timp o condiție este adevărată:</p>
+        <div class="code-box">
+            <textarea id="while-code">let numar = 1;
+while (numar <= 5) {
+    console.log("Numărul este: " + numar);
+    numar++;
+}
+
+// Exemplu cu condiție complexă
+let suma = 0;
+let contor = 1;
+while (suma < 20) {
+    suma += contor;
+    console.log("Suma curentă: " + suma);
+    contor++;
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('while-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-3" class="section">
+        <h2>Bucla do...while</h2>
+        <p>Bucla do...while execută codul cel puțin o dată, apoi verifică condiția:</p>
+        <div class="code-box">
+            <textarea id="do-while-code">let x = 1;
+do {
+    console.log("Valoarea lui x este: " + x);
+    x++;
+} while (x <= 3);
+
+// Chiar și când condiția e falsă de la început
+let y = 10;
+do {
+    console.log("Acest mesaj va fi afișat o dată");
+} while (y < 5);</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('do-while-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-4" class="section">
+        <h2>for...of și for...in</h2>
+        <p>Bucle moderne pentru iterare prin colecții și obiecte:</p>
+        <div class="code-box">
+            <textarea id="modern-loops-code">// for...of pentru arrays
+let culori = ["roșu", "verde", "albastru"];
+for (let culoare of culori) {
+    console.log(culoare);
+}
+
+// for...in pentru obiecte
+let persoana = {
+    nume: "Ion",
+    varsta: 25,
+    oras: "București"
+};
+for (let proprietate in persoana) {
+    console.log(`${proprietate}: ${persoana[proprietate]}`);
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('modern-loops-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-5" class="section">
+        <h2>Break și Continue</h2>
+        <p>Controlul execuției buclelor:</p>
+        <div class="code-box">
+            <textarea id="control-code">// Break pentru a ieși din buclă
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) break;
+    console.log("Break exemplu: " + i);
+}
+
+// Continue pentru a sări peste o iterație
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) continue;
+    console.log("Continue exemplu: " + i);
+}</textarea>
+        </div>
+        <button class="run-button" onclick="eval(document.getElementById('control-code').value)">Rulează</button>
+    </section>
+
+    <section id="sectiunea-6" class="section">
+        <h2>Resurse Suplimentare</h2>
+        <ul class="resource-links">
+            <li class="resource-link">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank">
+                    Documentație Bucle pe MDN Web Docs
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://javascript.info/while-for" target="_blank">
+                    Ghid Bucle pe JavaScript.info
+                </a>
+            </li>
+            <li class="resource-link">
+                <a href="https://www.w3schools.com/js/js_loop_for.asp" target="_blank">
+                    Tutorial Bucle pe W3Schools
+                </a>
+            </li>
+        </ul>
+
+        <h3>Video Demonstrativ</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/s9wW2PpJsmQ" 
+                    title="Tutorial Bucle JavaScript"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script>
+        console.log('Deschide consola pentru a vedea rezultatele! (F12)');
+    </script>
+</body>
+
+</html>
